@@ -2,3 +2,7 @@
 2. Enable Wifi
 3. Interfaces -> Edit -> Protocol(DHCP)
 4. 使用wifi 連上ap , 用TTL 查看IP, 在由IP登入頁面
+
+
+增加：ifconfig eth0:0 192.168.176.100 netmask 255.255.255.0 up
+取消：ifconfig eth0:0 down
