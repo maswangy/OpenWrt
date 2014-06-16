@@ -52,3 +52,6 @@ Once again, open a SSH connection with PuTTY, now with the new IP. Enter the fol
 2. opkg install luci
 3. /etc/init.d/uhttpd enable
 4. /etc/init.d/uhttpd start
+
+
+PS: 第一次登入web 需要用192.168.1.1 否則Luci網頁開不起來 , 之後改成DHCP 在switch save 後, 就可以用IP登入 
