@@ -1,0 +1,54 @@
+1. git clone https://github.com/mirrors/openwrt
+2. cd openwrt
+3. time make -j8
+
+
+安裝tftp 並燒錄
+1. 安裝tftp      sudo apt-get install tftp-hpa tftpd-hpa
+
+2. 
+ a.修改/etc/default/tftpd-hpa配置文件
+          將TFTP_DIRECTORY="/var/lib/tftpboot"修改為TFTP_DIRECTORY="/home/m/tftpboot"
+          將TFTP_OPTIONS="--secure"修改為TFTP_OPTIONS="-l-c -s"
+ b.建立服務器文件夾
+          mkdir/home/m/tftpboot
+
+3. 重啟tftp服務
+sudo service tftpd-hpa restart
+
+4. tftp localhost/IP
+tftp>get a.txt
+tftp>put b.txt
+tftp>quit
+
+
+5. 開始燒錄
+進入boot介面後，一秒內輸入tpl進入
+
+設定自己的IP以及電腦的IP
+hornet> setenv ipaddr 192.168.0.100
+hornet> setenv serverip 192.168.0.10
+
+開始傳輸Image到板子上囉
+hornet> tftpboot 0x80000000 openwrt-ar71xx-generic-tl-mr3020-v1-squashfs-factory.bin
+
+
+完成後開始清除Flash
+hornet> erase 0x9f020000 +0x3c0000
+
+將Image寫進Flash
+hornet> cp.b 0x80000000 0x9f020000 0x3c0000
+
+寫入完成後就可以啟動板子囉
+hornet> bootm 9f020000
+
+
+
+
+# luci
+Once again, open a SSH connection with PuTTY, now with the new IP. Enter the following:
+
+1. opkg update
+2. opkg install luci
+3. /etc/init.d/uhttpd enable
+4. /etc/init.d/uhttpd start
