@@ -1,0 +1,4 @@
+1. 192.168.1.1 // 登入頁面設定
+2. Enable Wifi
+3. Interfaces -> Edit -> Protocol(DHCP)
+4. 使用wifi 連上ap , 用TTL 查看IP, 在由IP登入頁面
