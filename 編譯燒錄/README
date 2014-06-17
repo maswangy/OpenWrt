@@ -55,3 +55,12 @@ Once again, open a SSH connection with PuTTY, now with the new IP. Enter the fol
 
 
 PS: 第一次登入web 需要用192.168.1.1 否則Luci網頁開不起來 , 之後改成DHCP 在switch save 後, 就可以用IP登入 
+
+
+
+安裝套件 kmod-usb-acm
+1. opkg install kmod-usb-acm  --force-depends 
+2. opkg install ser2net --force-depends 
+
+強制移除 
+1. opkg remove luci-theme-bootstrap --force-depends
