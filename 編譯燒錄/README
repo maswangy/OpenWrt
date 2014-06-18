@@ -11,7 +11,8 @@
           將TFTP_DIRECTORY="/var/lib/tftpboot"修改為TFTP_DIRECTORY="/home/m/tftpboot"
           將TFTP_OPTIONS="--secure"修改為TFTP_OPTIONS="-l-c -s"
  b.建立服務器文件夾
-          mkdir/home/m/tftpboot
+          mkdir/home/shihyu/data/tftpboot
+          chmod 777 /home/shihyu/data/tftpboot
 
 3. 重啟tftp服務
 sudo service tftpd-hpa restart
