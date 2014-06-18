@@ -45,6 +45,24 @@ hornet> bootm 9f020000
 
 
 
+# 設定DHCP or static 上網
+# dhcp
+config interface 'wan'
+    option ifname 'eth0'
+    option proto 'dhcp'
+
+
+# static
+config 'interface' 'wan'
+        option 'proto'     'pppoe'
+        option 'ifname'    'eth0'
+        option 'username'  'seednet'
+        option 'password'  'seednet'
+        option 'timeout'   '10'
+
+
+
+
 
 # luci
 Once again, open a SSH connection with PuTTY, now with the new IP. Enter the following:
